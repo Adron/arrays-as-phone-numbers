@@ -22,5 +22,17 @@ public class Tests
     {
         return Kata.CreatePhoneNumber(numbers);
     }
-    
+
+    [Test]
+    [TestCase("+1 (123) 456-7890", ExpectedResult = new int[] {1,1,2,3,4,5,6,7,8,9,0})]
+    [TestCase("+1 (111) 111-1111", ExpectedResult = new int[] {1,1,1,1,1,1,1,1,1,1,1})]
+    [TestCase("+30 (123) 456-7890", ExpectedResult = new int[] {30,1,2,3,4,5,6,7,8,9,0})] // Greece
+    [TestCase("+31 (123) 456-7890", ExpectedResult = new int[] {31,1,2,3,4,5,6,7,8,9,0})] // Netherlands
+    [TestCase("+380 (111) 111-1111", ExpectedResult = new int[] {380,1,1,1,1,1,1,1,1,1,1})] // Ukraine
+    public static int[] EncodeTest(string number)
+    {
+        return Kata.EncodePhone(number);
+    }
+
+
 }
